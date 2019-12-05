@@ -8,5 +8,13 @@ for i in range(145852, 616943):
             or int_list[3] > int_list[4] \
             or int_list[4] > int_list[5]:
         continue
-    count += 1
+    elif len(set(int_list)) < 5:
+        int_counter = {}
+        for integer in int_list:
+            c = int_counter.setdefault(integer, 0) + 1
+            int_counter[integer] = c
+        if 2 in int_counter.values():
+            count += 1
+    else:
+        count += 1
 print(count)
